@@ -1,5 +1,4 @@
 Fraunhofer IPA
-Mathieu Bapst
 
 Seher Project
 
