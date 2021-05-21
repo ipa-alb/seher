@@ -1,0 +1,28 @@
+<launch>  
+
+
+
+   <node name="robot_self_filter" pkg="robot_self_filter" type="self_filter" respawn="true" output="screen">
+
+     <!-- The topic for the input cloud -->
+     <remap from="cloud_in" to="/cameras/depth_pointcloud_fusion" />
+
+     <!-- The topic for the output cloud -->
+     <remap from="cloud_out" to="/cameras/depth_pointcloud_fusion_filtered" />
+
+     
+     <!-- Minimum distance to sensor (for point not to be considered inside) -->
+     <param name="min_sensor_dist" type="double" value="0.01" />
+
+     <!-- The padding to be added for the body parts the robot can see -->
+     <param name="self_see_padd" type="double" value="0.02" />
+
+     <!-- The scaling to be added for the body parts the robot can see -->
+     <param name="self_see_scale" type="double" value="1.0" />
+     
+     <!-- Load self_see_links -->
+ <rosparam command="load" file="$(find seher)/launch/self_see_links.yaml"/>
+     
+   </node>
+</launch>
+
