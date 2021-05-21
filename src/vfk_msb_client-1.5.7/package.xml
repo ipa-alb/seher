@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vfk_msb_client</name>
+  <version>0.0.0</version>
+  <description>The vfk_msb_client package</description>
+
+
+  <maintainer email="cch@todo.todo">cch</maintainer>
+
+
+  <license>Virtual Fort Knox</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>python-ws4py-pip</exec_depend>
+  <exec_depend>python-iso8601-pip</exec_depend>
+  <exec_depend>rospy_message_converter</exec_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

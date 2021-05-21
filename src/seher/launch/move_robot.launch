@@ -1,0 +1,9 @@
+<launch>
+  
+
+
+<node name="move_robot" pkg="seher" type="move_robot" />
+
+<node name="collision_avoidance_robot" pkg="seher" type="collision_avoidance_robot" />
+
+</launch>

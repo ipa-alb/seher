@@ -1,0 +1,28 @@
+<launch>
+	<node name="msb_ros_bridge" pkg="vfk_msb_client" type="msb_ros_bridge.py" output="screen">
+		<!-- MSB to connect to -->
+		<param name="host" value="ws://ws.msb.seher.dia.cell.vfk.fraunhofer.de" />
+
+		<!-- UUID for connection -->
+		<param name="uuid" value="16fab7e2-d112-4496-97dc-3b7aff27a2f7" />
+
+		<!-- Name for connection -->
+		<param name="name" value="ROS Bridge Demo" />
+
+		<!-- Description for connection -->
+		<param name="desc" value="The ROS Bridge" />
+
+		<!-- Token for connection -->
+		<param name="token" value="5e0d9c54dacx" />
+
+		<!-- Topics to subscribe in ros -->
+		<param name="topics_sub" value="/distance_calculation/minimal_distance,
+						/robot_state_machine/state" />
+
+		<!-- Topics to publish in ROS -->
+		<param name="topics_pub" value="/data_return std_msgs/Float32" />
+
+		<!-- Register all topics as string and send json to MSB -->
+		<param name="json_only" value="True" />
+	</node>
+</launch>

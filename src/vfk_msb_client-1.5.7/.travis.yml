@@ -1,0 +1,29 @@
+language: python
+python:
+#  - "2.6"
+  - "2.7"
+#  - "3.2"
+#  - "3.3"
+#  - "3.4"
+#  - "3.5"
+#  - "3.5-dev"
+#  - "nightly"
+
+# sudo: required
+
+install: 
+# normal instalation
+#  - sudo apt-get update
+#  - sudo apt-get install -fy $(cat requirements_apt.txt | tr "\n" " ")
+
+# set up ros from source
+  - sh install_ros.sh
+
+# install python deps
+  - pip install -r requirements.txt
+
+# install sources
+  - make install
+
+# command to run tests
+script: py.test -v
