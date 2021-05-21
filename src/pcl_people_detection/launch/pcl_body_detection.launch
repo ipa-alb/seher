@@ -1,0 +1,12 @@
+<launch>
+  
+<arg name="tree_path"    default="/home/mathieu/catkin_ws/build/pcl_people_detection/Data"/>
+
+
+<!-- launch the pcl tracker node -->
+   
+
+<node name="pcl_people_detection" pkg="pcl_people_detection" type="pcl_people_detection" args="-numTrees 3 -tree0 $(arg tree_path)/forest1/tree_20.txt -tree1 $(arg tree_path)/forest2/tree_20.txt -tree2 $(arg tree_path)/forest3/tree_20.txt" />
+
+
+</launch>
