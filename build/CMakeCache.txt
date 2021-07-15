@@ -322,7 +322,7 @@ OpenMP_gomp_LIBRARY:FILEPATH=/usr/lib/gcc/x86_64-linux-gnu/7/libgomp.so
 OpenMP_pthread_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
 
 //The directory containing a CMake configuration file for OpenPose.
-OpenPose_DIR:PATH=/home/student/openpose/cmake
+OpenPose_DIR:PATH=/home/student/seher/src/openpose/cmake
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python2
@@ -441,17 +441,11 @@ geometry_msgs_DIR:PATH=/opt/ros/melodic/share/geometry_msgs/cmake
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/student/seher/build/gtest/googlemock
 
-//Dependencies for the target
-gmock_LIB_DEPENDS:STATIC=general;-lpthread;
-
 //Value Computed by CMake
 gmock_SOURCE_DIR:STATIC=/usr/src/googletest/googlemock
 
 //Build all of Google Mock's own tests.
 gmock_build_tests:BOOL=OFF
-
-//Dependencies for the target
-gmock_main_LIB_DEPENDS:STATIC=general;-lpthread;
 
 //Value Computed by CMake
 googletest-distribution_BINARY_DIR:STATIC=/home/student/seher/build/gtest
@@ -461,9 +455,6 @@ googletest-distribution_SOURCE_DIR:STATIC=/usr/src/googletest
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/student/seher/build/gtest/googlemock/gtest
-
-//Dependencies for the target
-gtest_LIB_DEPENDS:STATIC=general;-lpthread;
 
 //Value Computed by CMake
 gtest_SOURCE_DIR:STATIC=/usr/src/googletest/googletest
@@ -483,9 +474,6 @@ gtest_force_shared_crt:BOOL=OFF
 
 //Build gtest with internal symbols hidden in shared libraries.
 gtest_hide_internal_symbols:BOOL=OFF
-
-//Dependencies for the target
-gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
 //The directory containing a CMake configuration file for image_transport.
 image_transport_DIR:PATH=/opt/ros/melodic/share/image_transport/cmake
