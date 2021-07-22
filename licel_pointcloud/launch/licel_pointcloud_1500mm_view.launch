@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find licel_pointcloud)/launch/licel_pointcloud_publisher_1500mm.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find licel_pointcloud)/rviz/licel_point_cloud_view.rviz" />
+</launch>

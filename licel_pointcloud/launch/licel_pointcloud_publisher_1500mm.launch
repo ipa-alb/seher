@@ -1,0 +1,10 @@
+<launch>
+  <node name="licel_pointcloud"	pkg="licel_pointcloud"  type="licel_pointcloud_publisher_1500mm" output="screen">
+        <param name="confidence_threshold"         type="int   " value="1500"/>
+        <param name="exposure "                    type="string" value="1000Us"/>
+        <param name="conversion_gain "             type="string" value="High"/>
+        <param name="Amplitude_gain "	           type="int " value="1"/>
+	<param name="scene"		   	   type="string" value=""/>
+
+  </node>
+</launch>
