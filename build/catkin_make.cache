@@ -1,2 +1,0 @@
-ros_openpose
--DCATKIN_DEVEL_PREFIX=/home/student/seher/devel -DCMAKE_INSTALL_PREFIX=/home/student/seher/install -G Unix Makefiles
