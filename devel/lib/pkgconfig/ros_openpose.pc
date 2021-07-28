@@ -1,8 +1,0 @@
-prefix=/home/student/seher/devel
-
-Name: ros_openpose
-Description: Description of ros_openpose
-Version: 0.0.1
-Cflags: -I/home/student/seher/devel/include -I/home/student/seher/src/ros_openpose/include
-Libs: -L${prefix}/lib 
-Requires: std_msgs geometry_msgs message_runtime sensor_msgs message_filters
