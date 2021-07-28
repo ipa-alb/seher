@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+only_calibrate.launch
+
++++ Starts two cameras and show them in rviz +++
+
+Author: Kellermann Jaqueline
+Date: 2021/07/26
+-->
+
+<launch>
+  
+  <arg name="serial_no_cameraL"    			default="937622073146"/> 			<!-- Note: Replace with actual serial number -->
+  
+  <arg name="serial_no_cameraR"    			default="838212073332"/> 			<!-- Note: Replace with actual serial number -->
+
+  <arg name="cameraL"              			default="camL"/>		  
+  <arg name="cameraR"              			default="camR"/>		
+
+  <arg name="tf_prefix_cameraL"         default="$(arg cameraL)"/>
+  <arg name="tf_prefix_cameraR"         default="$(arg cameraR)"/>
+  
+  <arg name="initial_reset"             default="false"/>
+  <arg name="filters"             default="pointcloud"/>
+
+
+<group ns="$(arg cameraL)"> 
+    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
+
+      
+      <arg name="serial_no"             value="$(arg serial_no_cameraL)"/>
+      <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraL)"/>
+      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+      <arg name="filters"		value="$(arg filters)"/>
+      
+    </include>
+</group>
+
+
+
+<group ns="$(arg cameraR)"> 
+    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">      
+      <arg name="serial_no"             value="$(arg serial_no_cameraR)"/>
+      <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraR)"/>
+      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+      <arg name="filters"		value="$(arg filters)"/>
+    </include>
+</group> 
+
+
+<!-- launch rviz -->
+
+
+<node name="tf_base_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world base_link 50"/>
+
+<node name="tf_camL_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world camL_link 500" />
+
+<node name="tf_camR_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 -0.31 0 0 0 0 world camR_link 500" />
+
+
+
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find seher)/launch/rviz_config_demo.rviz"> 
+</node>
+
+
+
+
+</launch>

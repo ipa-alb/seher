@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+test2.launch
+Author: Kellermann Jaqueline
+Date: 2021/07/26
+-->
+
+<launch>
+  
+  <arg name="serial_no_cameraL"    			default="838212073332"/> 			<!-- Note: Replace with actual serial number -->
+
+  <arg name="cameraL"              			default="camL"/>		  
+
+  <arg name="tf_prefix_cameraL"         default="$(arg cameraL)"/>
+  
+  <arg name="initial_reset"             default="false"/>
+  <arg name="filters"             default="pointcloud"/>
+
+  <arg name="workspace"             default="seher_ws"/>            <!-- Note: Replace with actual workspace i.e. catkin_ws -->
+
+
+<!--<group ns="$(arg cameraL)"> 
+    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
+
+      
+      <arg name="serial_no"             value="$(arg serial_no_cameraL)"/>
+      <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraL)"/>
+      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+      <arg name="filters"		value="$(arg filters)"/>
+      <arg name="align_depth" value="true" />
+    </include>
+</group> -->
+
+
+<include file="$(find seher)/launch/run_openpose.launch">
+  <arg name="workspace"             value="$(arg workspace)"/>
+  <arg name="camera_name"             value="$(arg cameraL)"/>
+  <arg name="serial_no"             value="$(arg serial_no_cameraL)"/>
+  <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraL)"/>
+  <arg name="initial_reset"         value="$(arg initial_reset)"/>
+</include>
+
+
+<!-- launch rviz -->
+
+    <!--<group if="$(arg rviz)" >
+      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find ros_openpose)/files/person_pointcloud_realsense.rviz" />
+    </group>
+  </group>-->
+
+
+
+
+
+</launch>
