@@ -25,8 +25,7 @@
 
 ### Install openPose Pose Tracker
 
-* Follow the guide in https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/0_index.md & clone Version 1.6.0 </br>
-
+* Follow the guide in https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation/0_index.md & clone Version 1.6.0 </br> 
 &rarr; For Ubuntu18.04, CUDA 10.1 with cuDNN 7.5.1 the installation steps in https://github.com/ipa-jk/Installationen helped
 
 * Follow the guide in https://github.com/ravijo/ros_openpose
