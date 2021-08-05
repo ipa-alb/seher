@@ -29,8 +29,8 @@ Clone this repository: ```git clone https://github.com/ipa-alb/seher.git -b jk/s
 * Make sure conda is deactivated: ```conda deactivate```
 
 * Add caffe library and openpose to LD_LIBRARY_PATH: 
-* ```LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/student/seher_ws/src/openpose/caffe/lib/:/home/student/seher_ws/src/openpose/src/openpose/
- export LD_LIBRARY_PATH```
+* ```LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/student/seher_ws/src/openpose/caffe/lib/:/home/student/seher_ws/src/openpose/src/openpose/ </br>
+export LD_LIBRARY_PATH```
 * source workspace(here 'seher_ws'): ```source seher_ws/devel_isolated/setup.bash```
 
 * start setup: ```roslaunch seher setup_start.launch```
