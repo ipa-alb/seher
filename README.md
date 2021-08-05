@@ -25,7 +25,9 @@
 
 Clone this repository: ```git clone https://github.com/ipa-alb/seher.git -b jk/sim```
 
-### Launch setup
+## Launch setup
+
+### Launch Openpose with two cameras and robot dummy:
 * Make sure conda is deactivated: ```conda deactivate```
 
 * Add caffe library and openpose to LD_LIBRARY_PATH: 
