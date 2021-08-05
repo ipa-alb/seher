@@ -6,14 +6,11 @@ Date: 2019/11/23
 -->
 <launch>
 
-    <arg name="ws_name" default=""/>
+  <arg name="ws_name" default=""/>
+  
+  <arg name="camera2" default=""/>
+  <arg name="serial_no_camera2" default=""/>
 
-    <arg name="cameraL" default=""/>
-    <arg name="cameraR" default=""/>
-
-    <arg name="serial_no_cameraL" default=""/> 
-    <arg name="serial_no_cameraR" default=""/>
-    	 
 
 
   <!-- set this flag to switch ros_openpose to a synchronous setting -->
@@ -25,14 +22,10 @@ Date: 2019/11/23
   <!-- the value of this argument can only be one of the following: realsense, kinect, zed2, nodepth -->
   <arg name="camera" default="realsense" />
 
-  <!-- set this flag to see invoke RViz -->
-  <arg name="rviz" default="false" />
 
   <!-- set this flag to invoke the visualization of the skeleton -->
   <arg name="skeleton" default="true" />
 
-  <!-- set this flag to see the pointcloud in the visualization inside RViz  -->
-  <arg name="pointcloud" default="true" />
 
   <!-- set this flag to invoke the visualization of the hands of the skeleton -->
   <arg name="skeleton_hands" default="false" />
@@ -42,7 +35,7 @@ Date: 2019/11/23
    to do so, please change the value, as shown in the example below.
   -->
   <?ignore
-    <arg name="openpose_args" value="--hand --disable_multi_thread --model_folder /home/student/$(arg ws_name)/src/openpose/models/" />
+    <arg name="openpose_args" value="--hand --disable_multi_thread --model_folder /home/ravi/openpose/models/" />
   ?>
   <!-- full path to the model dir of openpose -->
   <arg name="openpose_args" value="--model_folder /home/student/$(arg ws_name)/src/openpose/models/" />
@@ -62,20 +55,15 @@ Date: 2019/11/23
   <!-- flag to enable printing ros message to terminal -->
   <arg name="print" default="true" />
 
-  <include file="$(find seher)/launch/config_$(arg camera).launch" >
+  <include file="$(find seher)/launch/setup_config_$(arg camera).launch" >
+
+    <arg name="camera2" value="$(arg camera2)"/>
+    <arg name="serial_no_camera2" value="$(arg serial_no_camera2)"/>
     
-    <arg name="cameraL" value="$(arg cameraL)"/>
-    <arg name="cameraR" value="$(arg cameraR)"/>
-
-    <arg name="serial_no_cameraL" value="$(arg serial_no_cameraL)"/>
-    <arg name="serial_no_cameraR" value="$(arg serial_no_cameraR)"/> 	 
-
-
-    <arg name="rviz" value="$(arg rviz)" />
+    
     <arg name="print" value="$(arg print)" />
     <arg name="skeleton" value="$(arg skeleton)" />
     <arg name="pub_topic" value="$(arg pub_topic)" />
-    <arg name="pointcloud" value="$(arg pointcloud)" />
     <arg name="id_text_size" value="$(arg id_text_size)" />
     <arg name="openpose_args" value="$(arg openpose_args)" />
     <arg name="skeleton_hands" value="$(arg skeleton_hands)" />

@@ -1,0 +1,28 @@
+<launch>
+  
+  <arg name="serial_no_cameraL"    			default="937622073146"/> 			<!-- Note: Replace with actual serial number -->
+  
+  <arg name="serial_no_cameraR"    			default="838212073332"/> 			<!-- Note: Replace with actual serial number -->
+
+  <arg name="cameraL"              			default="camL"/>		  
+  <arg name="cameraR"              			default="camR"/>		
+
+  <arg name="ws_name"             default="seher_ws"/> 
+
+
+<include file="$(find seher)/launch/run.launch">
+    <arg name="ws_name" value="$(arg ws_name)"/>
+
+    <arg name="cameraL" value="$(arg cameraL)"/>
+    <arg name="cameraR" value="$(arg cameraR)"/>
+
+    <arg name="serial_no_cameraL" value="$(arg serial_no_cameraL)"/> 
+    <arg name="serial_no_cameraR" value="$(arg serial_no_cameraR)"/>	 
+    		  
+</include>
+
+
+
+
+
+</launch>

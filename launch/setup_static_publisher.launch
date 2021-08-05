@@ -1,0 +1,16 @@
+<launch>
+<?ignore
+  <node name="tf_cam1_color_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 base_link cam1_color_optical_frame 50"/>
+  <node name="tf_cam1_depth_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 base_link cam1_depth_optical_frame 50"/>
+  <node name="tf_cam2_color_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 base_link cam2_color_optical_frame 50"/>
+  <node name="tf_cam2_depth_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 base_link cam2_depth_optical_frame 50"/>
+
+?>
+
+  <node name="tf_base_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world base_link 50"/>
+  <node name="tf_cam1_color_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world cam1_color_optical_frame 50"/>
+  <node name="tf_cam1_depth_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world cam1_depth_optical_frame 50"/>
+  <node name="tf_cam2_color_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="2.77 0.4 0 0 0 0 world cam2_color_optical_frame 50"/>
+  <node name="tf_cam2_depth_optical_frame" pkg="tf" type="static_transform_publisher" output="screen" args="2.77 0.4 0 0 0 0 world cam2_depth_optical_frame 50"/>
+
+</launch>

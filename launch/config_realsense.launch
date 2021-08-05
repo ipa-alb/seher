@@ -6,40 +6,32 @@ Note: Do not run this file directly. Please call run.launch file instead.
 Date: 2019/10/08
 -->
 <launch>
-  <arg name="cameraL"              			default="camL"/>		  
-
-  <arg name="tf_prefix_cameraL"         default="$(arg cameraL)"/>
-
-  <arg name="initial_reset"             default="false"/>
-  <arg name="filters"             default="pointcloud"/>
-
-  <arg name="serial_no"    			default="838212073332"/> 			<!-- Note: Replace with actual serial number -->
 
 
+  <arg name="cameraL" default=""/>
+  <arg name="cameraR" default=""/>
 
-
-
-
+  <arg name="serial_no_cameraL" default=""/>
+  <arg name="serial_no_cameraR" default=""/> 
 
 
   <!-- rostopic to subscribe for color images -->
-  <arg name="color_topic" default="/$(arg tf_prefix_cameraL)/color/image_raw" />
+  <arg name="color_topic" default="/camR/color/image_raw" />
 
   <!-- rostopic to subscribe for depth images -->
-  <arg name="depth_topic" default="/$(arg tf_prefix_cameraL)/aligned_depth_to_color/image_raw" />
+  <arg name="depth_topic" default="/camR/aligned_depth_to_color/image_raw" />
 
   <!-- rostopic to subscribe for camera calibration parameters -->
-  <arg name="cam_info_topic" default="/$(arg tf_prefix_cameraL)/color/camera_info" />
+  <arg name="cam_info_topic" default="/camR/color/camera_info" />
 
   <!-- frame id for point cloud and 3D skeleton data -->
-  <arg name="frame_id" default="$(arg tf_prefix_cameraL)_color_optical_frame" />
+  <arg name="frame_id" default="camR_color_optical_frame" />
 
   <!-- realsense camera provide depth information.
   hence unset the flag. -->
   <arg name="no_depth" default="false" />
 
   <!-- note that the following parameters are going to assigned by other launch file upon call. -->
-  
   <arg name="rviz" default="" />
   <arg name="print" default="" />
   <arg name="skeleton" default="" />
@@ -73,32 +65,73 @@ Date: 2019/10/08
 
   <!-- invoke realsense camera ros package -->
   <group if="$(arg pointcloud)" >
-    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml" >
-      <arg name="serial_no"             value="$(arg serial_no)"/>
-      <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraL)"/>
-      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      
+      <arg name="camera" value="$(arg cameraL)" />
+      <arg name="serial_no"             value="$(arg serial_no_cameraL)"/>
+
       <arg name="align_depth" value="true" />
-      <arg name="filters" value="pointcloud" />
+      <arg name="initial_reset"         value="true"/>
+      <arg name="filters"		value="pointcloud"/>
     </include>
+
+
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
+      
+      <arg name="camera" value="$(arg cameraR)" />
+      <arg name="serial_no" value="$(arg serial_no_cameraR)" />
+      
+      
+      <arg name="align_depth" value="true" />
+      <arg name="filters" value="pointcloud"/>
+      
+    </include>
+
+    <node name="tf_base_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world base_link 50"/>
+
+    <node name="tf_camL_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world camL_link 500" />
+
+    <node name="tf_camR_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 -0.31 0 0 0 0 world camR_link 500" />
+    
     <!-- invoke rviz -->
     <group if="$(arg rviz)" >
-      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/files/person_pointcloud_realsense.rviz" />
+      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/files/test_person_pointcloud_realsense.rviz" />
     </group>
   </group>
 
+
   <!-- invoke realsense camera ros package -->
   <group unless="$(arg pointcloud)" >
-    <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml" >
+
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
       
-      <arg name="serial_no"             value="$(arg serial_no)"/>
-      <arg name="tf_prefix"         	value="$(arg tf_prefix_cameraL)"/>
-      <arg name="initial_reset"         value="$(arg initial_reset)"/>
+      <arg name="camera" value="$(arg cameraL)" />
+      <arg name="serial_no" value="$(arg serial_no_cameraL)"/>
+      
       <arg name="align_depth" value="true" />
+      <arg name="filters"		value="pointcloud"/>
+    </include>
+
+
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
+      
+      <arg name="camera" value="$(arg cameraR)" />
+      <arg name="serial_no" value="$(arg serial_no_cameraR)" />
+
+      <arg name="align_depth" value="true" /> 
 
     </include>
-    <!-- invoke rviz -->
-    <group if="$(arg rviz)" >
-      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/files/only_person_realsense.rviz" />
+
+    <node name="tf_base_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world base_link 50"/>
+
+    <node name="tf_camL_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 0 0 0 0 0 world camL_link 500" />
+
+    <node name="tf_camR_link" pkg="tf" type="static_transform_publisher" output="screen" args="0 -0.31 0 0 0 0 world camR_link 500" />
+    
+  <!-- invoke rviz -->
+  <group if="$(arg rviz)" >
+      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/files/test_only_person_realsense.rviz" />
     </group>
   </group>
 </launch>
