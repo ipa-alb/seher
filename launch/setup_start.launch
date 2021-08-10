@@ -20,11 +20,6 @@
   </include>
 
 
-  <include file="$(find ur_manipulation)/launch/seher_demo.launch">
-	  <arg name="prompts" value="false"/>
-  </include>
-
-
   
   <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
     <arg name="camera" value="$(arg camera1)"/>
@@ -49,6 +44,12 @@
       <!-- invoke rviz -->
   <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/config/robot_tracking.rviz"/>
 
- 
+  <node pkg="seher" name="go_up.py" type="go_up.py" output="screen"></node>
+    
+
+  <include file="$(find ur_manipulation)/launch/seher_demo.launch">
+	  <arg name="prompts" value="false"/>
+  </include>
+
   
 </launch>
