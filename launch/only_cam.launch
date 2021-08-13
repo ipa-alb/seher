@@ -8,6 +8,10 @@
   <arg name="camera2"              			default="cam2"/>
 
 
+  
+
+
+  
   <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
     <arg name="camera" value="$(arg camera1)"/>
     <arg name="serial_no" value="$(arg serial_no_camera1)"/>
@@ -17,19 +21,20 @@
 
   </include>
 
-  <include file="$(find seher)/launch/start_run.launch">
-     
-     <arg name="ws_name" value="$(arg ws_name)"/>
-     <arg name="camera2" value="$(arg camera2)"/>
-     <arg name="serial_no_camera2" value="$(arg serial_no_camera2)"/>
-  
-  </include>
-
-
-
-      <!-- invoke rviz -->
-  <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find seher)/files/test_person_pointcloud_realsense.rviz"/>
 
  
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
+    <arg name="camera" value="$(arg camera2)"/>
+    <arg name="serial_no" value="$(arg serial_no_camera2)"/>
+
+    <arg name="align_depth" value="true" />
+    <arg name="filters" value="pointcloud" />
+
+  </include>
+
+  <!--<include file="$(find seher)/launch/setup_static_publisher.launch"> </include>-->
+
+
+
   
 </launch>

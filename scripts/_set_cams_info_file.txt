@@ -1,0 +1,28 @@
+{
+    "mode": "x", 
+    "azimuth": {
+        "step": 1, 
+        "value": 0.0
+    }, 
+    "y": {
+        "step": 0.1, 
+        "value": 2.2000000000000006
+    }, 
+    "x": {
+        "step": 0.1, 
+        "value": 0.7
+    }, 
+    "pitch": {
+        "step": 1, 
+        "value": 0.0
+    }, 
+    "z": {
+        "step": 0.1, 
+        "value": 0.0
+    }, 
+    "message": "Invalid key:\u0003", 
+    "roll": {
+        "step": 1, 
+        "value": 0.0
+    }
+}

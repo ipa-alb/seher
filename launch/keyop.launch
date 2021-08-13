@@ -1,0 +1,3 @@
+<launch>
+ <node name="transmod" type="set_cams_transforms.py" pkg="seher" launch-prefix="gnome-terminal --command" output="screen" args="base_link cam1_color_optical_frame 0.7 0.6 0 -90 0 0"  />
+</launch>
