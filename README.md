@@ -40,12 +40,6 @@ export LD_LIBRARY_PATH
 
 * start setup: ```roslaunch seher setup_start.launch```
 
-### Camera Calibration
-
-* start transform.launch (only publish one camera transform): ```roslaunch seher transform.launch```
-* start calibration script: ```python seher_ws/src/seher/scripts/set_cams_transforms.py cam2_color_optical_frame cam1_color_optical_frame 0 0 0 0 0 0```
-* insert values in setup_start.launch
-
 
 
 
