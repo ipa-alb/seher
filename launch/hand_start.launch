@@ -52,5 +52,9 @@
 	  <arg name="prompts" value="false"/>
   </include>
 
+  <node pkg="seher" name="hand_publisher_left" type="left_pixel_hand_republisher.py" output="screen"></node>
+
+  <node pkg="seher" name="hand_publisher_right" type="right_pixel_hand_republisher.py" output="screen"></node>
+
   
 </launch>

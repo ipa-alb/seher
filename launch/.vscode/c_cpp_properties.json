@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/student/seher_ws/devel_isolated/ur_msgs/include/**",
+        "/home/student/seher_ws/devel_isolated/ur_driver/include/**",
+        "/home/student/seher_ws/devel_isolated/seher/include/**",
+        "/home/student/seher_ws/devel_isolated/ros_openpose/include/**",
+        "/home/student/seher_ws/devel_isolated/realsense2_camera/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/student/seher_ws/devel_isolated/librealsense2/include/**",
+        "/home/student/seher_ws/src/ddynamic_reconfigure/include/**",
+        "/home/student/seher_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/student/seher_ws/src/ros_openpose/include/**",
+        "/home/student/seher_ws/src/universal_robot/ur_kinematics/include/**",
+        "/home/student/seher_ws/src/ur_manipulation/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
