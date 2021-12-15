@@ -38,7 +38,19 @@ export LD_LIBRARY_PATH
 ```
 * source workspace(here 'seher_ws'): ```source seher_ws/devel_isolated/setup.bash```
 
-* start setup: ```roslaunch seher setup_start.launch```
+* start setup: ```roslaunch seher hand_start.launch```
+
+## Hand Position
+topic type: Pixel 
+Message consisting of: 
+float32 x
+float32 y
+
+
+```\left_republisher``` : Topic, which publishes hand middle point (as pixel) of left hand 
+
+```\right_republisher``` : Topic, which publishes hand middle point (as pixel) of right hand 
+
 
 
 
