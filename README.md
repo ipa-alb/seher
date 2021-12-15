@@ -41,10 +41,10 @@ export LD_LIBRARY_PATH
 * start setup: ```roslaunch seher hand_start.launch```
 
 ## Hand Position
-topic type: Pixel 
-Message consisting of: 
-float32 x
-float32 y
+topic type: Pixel </br>
+Message consisting of: </br>
+float32 x </br>
+float32 y </br>
 
 
 ```\left_republisher``` : Topic, which publishes hand middle point (as pixel) of left hand 
