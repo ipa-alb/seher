@@ -7,7 +7,7 @@
 ### Install required repositories for Robot Dummy Task Setup
 
 * Clone universal_robot repository: </br>
-```git clone git clone https://github.com/ipa-kut/universal_robot -b sim```
+```git clone https://github.com/ipa-kut/universal_robot -b sim```
 
 * Clone ur5e_egp50_moveit_config repository: </br>
 ```git clone https://github.com/ipa-kut/ur5e_egp50_moveit_config```
