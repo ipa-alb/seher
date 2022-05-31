@@ -40,7 +40,7 @@ To launch the workcell setup :
 - roslaunch seher workcell_setup.launch
 
 To launch the robot moving demonstration with speed reduction and stopping when approaching as well as the tool handover function :
-- roslaunch seher move_robot
+- roslaunch seher move_robot.launch
 
 Hint!! robot has to be in Remote Control mode when launching the workcell setup. This must be activated from Teach Pendant. AND External Control URCaps must be put in the program on Teach Pendant.
 
